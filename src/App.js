@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux"
+import "./App.css";
+import Nav from "./components/Nav"
+import Expence from "./components/Expence"
+import History from "./components/History"
+import Model from "./components/Model"
+import store from "./Store/Store"
 
 function App() {
+  const [model, setModel] = React.useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Provider store={store}>
+    <div>
+    <Nav/>
+    <Expence />
+    <History />
+    <Model/>
     </div>
+    </Provider>
   );
 }
 
